@@ -3,8 +3,8 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { PrxAnimatedLogo } from "./PrxAnimatedLogo";
-import { AuraAnimatedLogo } from "./AuraLogo";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { GoianiaShoppingAnimatedLogo } from "./GoianiaShoppingLogo";
+import { ArrowRight } from "lucide-react";
 
 interface CoverSplashScreenProps {
   isOpen: boolean;
@@ -19,8 +19,8 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
     "letter-r": false,
     "letter-x": false,
   });
-  const [auraSymbol, setAuraSymbol] = useState<boolean>(false);
-  const [auraText, setAuraText] = useState<boolean>(false);
+  const [gsSymbol, setGsSymbol] = useState<boolean>(false);
+  const [gsText, setGsText] = useState<boolean>(false);
   const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
   const [shouldRender, setShouldRender] = useState<boolean>(isOpen);
 
@@ -40,8 +40,8 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
       "letter-r": true,
       "letter-x": true,
     });
-    setAuraSymbol(true);
-    setAuraText(true);
+    setGsSymbol(true);
+    setGsText(true);
     setIsFadingOut(true);
 
     const fadeTimer = setTimeout(() => {
@@ -66,7 +66,7 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, shouldRender, skip]);
 
-  // Sequential animation with PRX and GRUPO AURA
+  // Sequential animation with GOIÂNIA SHOPPING and PRX
   useEffect(() => {
     if (!isOpen) {
       setShouldRender(false);
@@ -82,8 +82,8 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
       "letter-r": false,
       "letter-x": false,
     });
-    setAuraSymbol(false);
-    setAuraText(false);
+    setGsSymbol(false);
+    setGsText(false);
 
     clearAllTimers();
 
@@ -110,15 +110,15 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
       setPrxParts((prev) => ({ ...prev, "letter-x": true }));
     }, 1200);
 
-    // t=1500ms: Grupo Aura Asterisk drops in (0.3s)
+    // t=1500ms: Goiânia Shopping symbol reveals
     const t5 = setTimeout(() => {
-      setAuraSymbol(true);
+      setGsSymbol(true);
       setStep(2);
     }, 1500);
 
-    // t=1800ms: Grupo Aura Typography reveals (0.3s)
+    // t=1800ms: Goiânia Shopping typography reveals
     const t6 = setTimeout(() => {
-      setAuraText(true);
+      setGsText(true);
       setStep(3);
     }, 1800);
 
@@ -147,7 +147,7 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
     <div
       aria-modal="true"
       role="dialog"
-      aria-label="Apresentação da Proposta de Parceria PRX × GRUPO AURA"
+      aria-label="Apresentação da Proposta de Parceria Goiânia Shopping × PRX"
       className="fixed inset-0 z-50 bg-[#0B0B10] text-white flex flex-col items-center justify-center p-6 transition-all duration-700 ease-out select-none overflow-hidden"
       style={{
         opacity: isFadingOut ? 0 : 1,
@@ -172,7 +172,7 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
         </button>
       </div>
 
-      {/* Center Content: Exact Duo Branding for PRX × GRUPO AURA */}
+      {/* Center Content: Exact Duo Branding for GOIÂNIA SHOPPING × PRX */}
       <div className="relative z-10 w-full max-w-4xl flex flex-col items-center justify-center text-center px-4">
         
         {/* Cover Title */}
@@ -186,23 +186,32 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
           <p className="text-xs sm:text-sm md:text-base font-mono tracking-[0.35em] uppercase text-slate-400 font-semibold">
             PROPOSTA DE PARCERIA ESTRATÉGICA
           </p>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight mt-2 bg-linear-to-r from-white via-slate-100 to-[#0BD9FD] bg-clip-text text-transparent">
-            PRX × GRUPO AURA
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight mt-2 bg-linear-to-r from-white via-slate-100 to-[#0BD9FD] bg-clip-text text-transparent">
+            GOIÂNIA SHOPPING × PRX
           </h1>
+          <p className="text-xs sm:text-sm font-mono tracking-widest text-[#0BD9FD] uppercase mt-1">
+            THE NEXT GENERATION MALL
+          </p>
         </div>
 
         {/* The Two Brand Logos Container */}
         <div className="mt-8 sm:mt-12 w-full flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16">
           
-          {/* Logo 1: PRX (with falling vector letters) */}
+          {/* Logo 1: Goiânia Shopping */}
           <div className="flex flex-col items-center justify-center max-w-[280px] sm:max-w-[340px]">
             <div className="w-full">
-              <PrxAnimatedLogo
-                partsState={prxParts}
-                subtitleVisible={step >= 3}
-                className="w-full h-auto filter drop-shadow-[0_4px_16px_rgba(118,7,253,0.35)]"
+              <GoianiaShoppingAnimatedLogo
+                symbolVisible={gsSymbol}
+                textVisible={gsText}
+                className="w-full h-auto"
               />
             </div>
+            <span
+              className="text-[10px] font-mono tracking-widest text-slate-400 uppercase mt-2 transition-opacity duration-500"
+              style={{ opacity: gsText ? 1 : 0 }}
+            >
+              The Next Generation Mall
+            </span>
           </div>
 
           {/* Central Connecting Element */}
@@ -215,20 +224,20 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
             </span>
           </div>
 
-          {/* Logo 2: GRUPO AURA (with animated SVG asterisk and typography) */}
-          <div className="flex flex-col items-center justify-center max-w-[260px] sm:max-w-[320px]">
+          {/* Logo 2: PRX (with falling vector letters) */}
+          <div className="flex flex-col items-center justify-center max-w-[280px] sm:max-w-[340px]">
             <div className="w-full">
-              <AuraAnimatedLogo
-                symbolVisible={auraSymbol}
-                textVisible={auraText}
-                className="w-full h-auto filter drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)]"
+              <PrxAnimatedLogo
+                partsState={prxParts}
+                subtitleVisible={step >= 3}
+                className="w-full h-auto filter drop-shadow-[0_4px_16px_rgba(118,7,253,0.35)]"
               />
             </div>
             <span
-              className="text-[10px] font-mono tracking-widest text-slate-400 uppercase mt-2 transition-opacity duration-500"
-              style={{ opacity: auraText ? 1 : 0 }}
+              className="text-[10px] font-mono tracking-widest text-[#0BD9FD] uppercase mt-2 transition-opacity duration-500"
+              style={{ opacity: step >= 3 ? 1 : 0 }}
             >
-              Eventos & Experiências
+              Comunidade & Próxima Geração
             </span>
           </div>
 
@@ -242,8 +251,8 @@ export function CoverSplashScreen({ isOpen, onComplete }: CoverSplashScreenProps
             transform: step >= 4 ? "translateY(0)" : "translateY(20px)",
           }}
         >
-          <p className="text-base sm:text-xl font-medium text-slate-200 max-w-xl">
-            &ldquo;A próxima geração precisa de um lugar para acontecer.&rdquo;
+          <p className="text-base sm:text-xl font-medium text-slate-200 max-w-2xl leading-relaxed">
+            &ldquo;Uma ponte entre duas gerações, dois aplicativos e um mesmo ecossistema de consumo.&rdquo;
           </p>
           <div className="flex items-center gap-3 mt-1">
             <span className="text-xs sm:text-sm font-mono tracking-widest text-[#0BD9FD] font-semibold">

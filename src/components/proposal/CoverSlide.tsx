@@ -1,9 +1,9 @@
 // Hello World
 "use client";
 
-import { ArrowDown, Play, Sparkles } from "lucide-react";
+import { ArrowDown, Play } from "lucide-react";
 import { PrxStaticLogo } from "@/components/brand/PrxAnimatedLogo";
-import { AuraLogo } from "@/components/brand/AuraLogo";
+import { GoianiaShoppingLogo } from "@/components/brand/GoianiaShoppingLogo";
 
 interface CoverSlideProps {
   onReplaySplash: () => void;
@@ -25,26 +25,32 @@ export function CoverSlide({ onReplaySplash }: CoverSlideProps) {
           PROPOSTA DE PARCERIA ESTRATÉGICA
         </p>
 
-        <h1 className="mt-2 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight bg-linear-to-r from-white via-slate-100 to-[#0BD9FD] bg-clip-text text-transparent">
-          PRX × GRUPO AURA
+        <h1 className="mt-2 text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight bg-linear-to-r from-white via-slate-100 to-[#0BD9FD] bg-clip-text text-transparent">
+          GOIÂNIA SHOPPING × PRX
         </h1>
 
-        <p className="mt-4 text-base sm:text-xl text-slate-300 font-medium max-w-2xl leading-relaxed">
-          &ldquo;A próxima geração precisa de um lugar para acontecer.&rdquo;
+        <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-white/10 border border-white/15 text-xs sm:text-sm font-mono tracking-widest text-[#0BD9FD] uppercase font-bold">
+          THE NEXT GENERATION MALL
+        </div>
+
+        <p className="mt-5 text-base sm:text-xl text-slate-200 font-medium max-w-2xl leading-relaxed">
+          &ldquo;Uma ponte entre duas gerações, dois aplicativos e um mesmo ecossistema de consumo.&rdquo;
         </p>
 
-        {/* The Two Logos Side-by-Side (PRX × GRUPO AURA) */}
+        {/* The Two Logos Side-by-Side (Goiânia Shopping × PRX) */}
         <div className="mt-10 sm:mt-16 w-full flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-14 md:gap-20 pb-8 border-b border-slate-800">
           
-          {/* Logo 1: PRX */}
+          {/* Logo 1: Goiânia Shopping */}
           <div className="flex flex-col items-center justify-center">
-            <div className="relative w-44 sm:w-56 h-16 sm:h-20 flex items-center justify-center">
-              <PrxStaticLogo
-                className="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(118,7,253,0.4)]"
+            <div className="relative w-48 sm:w-64 h-16 sm:h-20 flex items-center justify-center">
+              <GoianiaShoppingLogo
+                theme="dark"
+                className="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(255,255,255,0.18)]"
+                priority
               />
             </div>
-            <span className="text-[11px] font-mono tracking-widest text-[#0BD9FD] uppercase mt-2">
-              Comunidade & Ecossistema
+            <span className="text-[11px] font-mono tracking-widest text-slate-400 uppercase mt-2">
+              The Next Generation Mall
             </span>
           </div>
 
@@ -55,16 +61,15 @@ export function CoverSlide({ onReplaySplash }: CoverSlideProps) {
             </span>
           </div>
 
-          {/* Logo 2: GRUPO AURA */}
+          {/* Logo 2: PRX */}
           <div className="flex flex-col items-center justify-center">
             <div className="relative w-44 sm:w-56 h-16 sm:h-20 flex items-center justify-center">
-              <AuraLogo
-                theme="dark"
-                className="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(255,255,255,0.18)]"
+              <PrxStaticLogo
+                className="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(118,7,253,0.4)]"
               />
             </div>
-            <span className="text-[11px] font-mono tracking-widest text-slate-400 uppercase mt-2">
-              Eventos & Experiências
+            <span className="text-[11px] font-mono tracking-widest text-[#0BD9FD] uppercase mt-2">
+              Comunidade & Ecossistema Jovem
             </span>
           </div>
 
@@ -82,10 +87,10 @@ export function CoverSlide({ onReplaySplash }: CoverSlideProps) {
           </button>
 
           <a
-            href="#oportunidade"
+            href="#conexao"
             className="inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-950 bg-white hover:bg-slate-100 rounded-md transition-colors cursor-pointer"
           >
-            <span>Iniciar Proposta</span>
+            <span>Explorar a Proposta</span>
             <ArrowDown className="w-4 h-4 text-[#7607FD]" />
           </a>
         </div>

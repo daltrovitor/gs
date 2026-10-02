@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { Play, Sparkles } from "lucide-react";
+import { GoianiaShoppingLogo } from "@/components/brand/GoianiaShoppingLogo";
 
 interface ProposalNavbarProps {
   onReplaySplash: () => void;
@@ -10,30 +11,26 @@ interface ProposalNavbarProps {
 
 export function ProposalNavbar({ onReplaySplash }: ProposalNavbarProps) {
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-100">
+    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
         {/* Brand Lockup */}
         <a
           href="#topo"
-          className="flex items-center gap-2.5 sm:gap-3.5 group cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+          className="flex items-center gap-2 sm:gap-3 group cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
           aria-label="Voltar ao início da proposta"
         >
-          <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-sm overflow-hidden bg-slate-900 flex items-center justify-center p-1 shadow-xs">
-            <Image
-              src="/brand/prx-app-icon.svg"
-              alt="Ícone do App PRX"
-              width={40}
-              height={40}
+          <div className="h-6 sm:h-7 w-28 sm:w-36 flex items-center">
+            <GoianiaShoppingLogo
+              theme="light"
               className="w-full h-full object-contain"
-              priority
             />
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold tracking-tight text-slate-950">
+          <span className="text-[#7607FD] font-mono text-base font-bold">×</span>
+
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm font-black tracking-tight text-slate-950 font-mono">
             <span>PRX</span>
-            <span className="text-[#7607FD] font-mono text-base font-bold">×</span>
-            <span>GRUPO AURA</span>
-            <span className="hidden sm:inline-block px-1.5 py-0.5 ml-1 text-[10px] uppercase font-mono tracking-widest text-[#7607FD] bg-purple-50 border border-purple-100 rounded-sm font-bold">
+            <span className="hidden sm:inline-block px-1.5 py-0.5 ml-1 text-[9px] uppercase font-mono tracking-widest text-[#7607FD] bg-purple-50 border border-purple-100 rounded-sm font-bold">
               2026
             </span>
           </div>
@@ -41,44 +38,62 @@ export function ProposalNavbar({ onReplaySplash }: ProposalNavbarProps) {
 
         {/* Section Navigation Links */}
         <nav
-          className="hidden lg:flex items-center gap-6 text-xs sm:text-sm font-medium text-slate-600"
+          className="hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-600"
           aria-label="Navegação da proposta"
         >
           <a
-            href="#oportunidade"
+            href="#conexao"
             className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
           >
-            A Oportunidade
-          </a>
-          <a
-            href="#quem-esta-por-tras"
-            className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
-          >
-            Quem Está por Trás
-          </a>
-          <a
-            href="#parceria"
-            className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
-          >
-            A Parceria
+            Conexão
           </a>
           <a
             href="#prx-pass"
             className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
           >
-            PRX Pass
+            1. PRX Pass
           </a>
           <a
-            href="#escolas"
+            href="#prx-lunch"
             className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
           >
-            Escolas
+            2. PRX Lunch
           </a>
           <a
-            href="#visao"
+            href="#pais-e-filhos"
             className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
           >
-            A Visão
+            3. Pais &amp; Filhos
+          </a>
+          <a
+            href="#prx-drop"
+            className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+          >
+            4. PRX Drop
+          </a>
+          <a
+            href="#insiders"
+            className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+          >
+            5. Insiders
+          </a>
+          <a
+            href="#presents"
+            className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+          >
+            6. Presents
+          </a>
+          <a
+            href="#next-space"
+            className="hover:text-slate-950 transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+          >
+            7. Next Space
+          </a>
+          <a
+            href="#tese"
+            className="hover:text-[#7607FD] text-slate-950 font-bold transition-colors py-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+          >
+            A Tese
           </a>
         </nav>
 
@@ -87,21 +102,21 @@ export function ProposalNavbar({ onReplaySplash }: ProposalNavbarProps) {
           <button
             type="button"
             onClick={onReplaySplash}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-slate-950 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-sm transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
-            aria-label="Rever a animação de abertura da marca"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-slate-950 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-sm transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+            aria-label="Rever a animação de abertura da proposta"
           >
             <Play className="w-3.5 h-3.5 text-[#7607FD] fill-[#7607FD]" />
             <span>Rever animação</span>
           </button>
 
           <a
-            href="https://wa.me/5511989609797"
+            href="https://wa.me/5511989609797?text=Ol%C3%A1%20Rafael%2C%20gostaria%20de%20conversar%20sobre%20a%20parceria%20Goi%C3%A2nia%20Shopping%20x%20PRX!"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white bg-slate-950 hover:bg-slate-800 rounded-sm shadow-xs transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-bold text-white bg-slate-950 hover:bg-slate-800 rounded-sm shadow-xs transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-[#7607FD]"
+            aria-label="Abrir conversa no WhatsApp"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#0BD9FD]" />
-            <span>Falar com Rafael</span>
+            <span>Contato Executivo</span>
           </a>
         </div>
       </div>
